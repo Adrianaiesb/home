@@ -6,7 +6,7 @@ import { ScrollView, View } from 'react-native'
 import { Button, Text, TextInput } from 'react-native-paper'
 import { mask } from 'remask'
 import { Picker } from '@react-native-picker/picker'
-import cadastroValidator from '../../validators/cadastroValidator'
+
 
 const CadastrosForm = ({ navigation, route }) => {
 
@@ -21,7 +21,7 @@ const CadastrosForm = ({ navigation, route }) => {
   const id = route.params?.id
 
   if (id >= 0) {
-    cadastro = route.params?.cadastro
+    cadastros = route.params?.cadastros
   }
 
   function salvar(dados) {
@@ -44,14 +44,14 @@ const CadastrosForm = ({ navigation, route }) => {
 
   return (
     <ScrollView style={{ margin: 15 }}>
-      <Text>Formulário de Curso</Text>
+      <Text>Perfil</Text>
 
+     
       <Formik
         initialValues={cadastros}
-        validationSchema={cadastroValidator}
         onSubmit={values => salvar(values)}
       >
-        {({ values, handleChange, handleSubmit, errors, touched, setFieldValue }) => (
+        {({ values, handleChange, handleSubmit}) => (
           <View>
 
             <TextInput
@@ -61,7 +61,8 @@ const CadastrosForm = ({ navigation, route }) => {
               value={values.nome}
               onChangeText={handleChange('nome')}
             />
-            <Validacao errors={errors.nome} touched={touched.nome} />
+            
+            
 
             <TextInput
               style={{ marginTop: 10 }}
@@ -71,7 +72,7 @@ const CadastrosForm = ({ navigation, route }) => {
               value={values.duracao}
               onChangeText={handleChange('duracao')}
             />
-            <Validacao errors={errors.duracao} touched={touched.duracao} />
+      
 
             <Picker
               selectedValue={values.modalidade}
@@ -81,7 +82,7 @@ const CadastrosForm = ({ navigation, route }) => {
               <Picker.Item label="EAD" value="EAD" />
               <Picker.Item label="Híbrido" value="Híbrido" />
             </Picker>
-            <Validacao errors={errors.modalidade} touched={touched.modalidade} />          
+                   
 
             <Button onPress={handleSubmit}>Salvar</Button>
           </View>
