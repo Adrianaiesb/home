@@ -24,6 +24,42 @@ export default function App() {
                 ),
               }}
             />
+            <Tab.Screen
+              name="Refêrencias"
+              component={CadastroStack}
+              options={{
+                tabBarIcon: () => (
+                  <MaterialCommunityIcons name="bookshelf" size={26} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Expêriencias"
+              component={CadastroStack}
+              options={{
+                tabBarIcon: () => (
+                  <MaterialCommunityIcons name="bookshelf" size={26} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Social"
+              component={CadastroStack}
+              options={{
+                tabBarIcon: () => (
+                  <MaterialCommunityIcons name="bookshelf" size={26} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Objetivos"
+              component={CadastroStack}
+              options={{
+                tabBarIcon: () => (
+                  <MaterialCommunityIcons name="bookshelf" size={26} />
+                ),
+              }}
+            />
           </Tab.Navigator>
         </NavigationContainer>
       </PaperProvider>
